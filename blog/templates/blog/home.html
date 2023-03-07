@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action = "result/">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Analyse your question in a go!!!</legend>
+            </fieldset> 
+            <div class="form-group">
+                <input class="form-control" placeholder="Question" required type="text" name="ques" value="{{ my_value }}">
+                <br>
+                <button class="btn btn-outline-info" type="submit">Analyse Now !</button>
+            </div>
+        </form>
+    </div>
+    <div class = "content-section">
+        <p>The quality of the question is {{output}}</p>
+    </div>
+{% endblock content %}
